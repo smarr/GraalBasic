@@ -24,6 +24,18 @@ if [ ! -d "graal-compiler" ]; then
   hg clone http://lafo.ssw.uni-linz.ac.at/hg/graal-compiler/
 fi
 
+if [ ! -d "truffle" ]; then
+  cd truffle
+  ../mx/mx clean
+  cd ..
+fi
+
+if [ ! -d "jvmci" ]; then
+  cd jvmci
+  ../mx/mx clean
+  cd ..
+fi
+
 cd graal-compiler
 hg pull
 hg update -r $REV
@@ -31,5 +43,6 @@ hg update -r $REV
 echo ""
 echo %% Build Graal Compiler
 echo ""
+../mx/mx --vm server clean
 ../mx/mx --vm server build
 
