@@ -39,6 +39,7 @@ fi
 cd graal-compiler
 hg pull
 hg update -r $REV
+../mx/mx sforceimports
 
 echo ""
 echo %% Build Graal Compiler
