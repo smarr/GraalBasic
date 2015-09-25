@@ -24,13 +24,13 @@ if [ ! -d "graal-compiler" ]; then
   hg clone http://lafo.ssw.uni-linz.ac.at/hg/graal-compiler/
 fi
 
-if [ ! -d "truffle" ]; then
+if [ -d "truffle" ]; then
   cd truffle
   ../mx/mx clean
   cd ..
 fi
 
-if [ ! -d "jvmci" ]; then
+if [ -d "jvmci" ]; then
   cd jvmci
   ../mx/mx clean
   cd ..
