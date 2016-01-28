@@ -2,20 +2,10 @@
 
 REV=`cat graal.revision`
 
-if [ ! -d "mx" ]; then
-  echo ""
-  echo %% Load MX
-  echo ""
-  hg clone https://bitbucket.org/allr/mx
-else
-  echo ""
-  echo %% Update MX
-  echo ""
-  cd mx
-  hg pull
-  hg update
-  cd ..
-fi
+echo ""
+echo %% Make sure git submodules are up-to-date
+echo ""
+git submodule update --init --recursive
 
 if [ ! -d "graal-compiler" ]; then
   echo ""
