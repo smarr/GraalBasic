@@ -3,19 +3,12 @@
 
 echo 
 echo Update Graal Compiler
-if [ -z "$1" ]; then
-  # no argument given, update to latest version
-  cd graal-compiler
-  hg pull
-  hg update
-  hg id -i > ../graal.revision
-  HG_ID=`hg id -i`
-  cd ..
-else
-  echo "$1\n" > graal.revision
-  HG_ID="$1"
-fi
+
+cd graal-core
+git pull
+GRAAL_REV=`git rev-parse HEAD`
+cd ..
 
 echo
-echo "Commit update to ${HG_ID}"
-git commit -m "Updated graal.revision to ${HG_ID}" graal.revision
+echo "Commit update to ${GRAAL_REV}"
+git commit -m "Updated graal-core to ${GRAAL_REV}"
