@@ -7,7 +7,7 @@ GRAAL_DIR=`pwd`
 echo
 echo Push to GraalBasic repository
 git push
-cd graal-core
+cd graal-compiler
 GRAAL_REV=`git rev-parse HEAD`
 cd ..
 

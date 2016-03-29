@@ -19,7 +19,7 @@ if [ -d "jvmci" ]; then
   cd ..
 fi
 
-cd graal-core
+cd graal-compiler
 ../mx/mx sforceimports
 
 echo ""
