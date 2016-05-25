@@ -6,6 +6,7 @@ echo Update Graal Compiler
 
 cd graal-compiler
 git pull graalvm master
+git push smarr master
 GRAAL_REV=`git rev-parse HEAD`
 cd ..
 
