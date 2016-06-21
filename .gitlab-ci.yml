@@ -1,0 +1,11 @@
+stages:
+  - build
+
+variables:
+  PYTHONUNBUFFERED: true
+
+build_job:
+  stage: build
+  tags: [benchmarks, infinity]
+  script:
+    - ./build.sh
