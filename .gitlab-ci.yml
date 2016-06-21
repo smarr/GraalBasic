@@ -2,7 +2,7 @@ stages:
   - build
 
 variables:
-  PYTHONUNBUFFERED: true
+  PYTHONUNBUFFERED: "true"
 
 build_job:
   stage: build
