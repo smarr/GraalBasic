@@ -1,7 +1,5 @@
 #!/bin/sh
 
-REV=`cat graal.revision`
-
 echo ""
 echo %% Make sure git submodules are up-to-date
 echo ""
