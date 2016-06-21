@@ -1,9 +1,7 @@
 GraalBasic
 ==========
 
-This repository contains the minimal set of scripts to build a basic Graal VM
-and specifies a Graal revision to be built.
+This repository contains the minimal set of scripts to build a basic JVM with
+the Graal revision specified by the submodule.
 
-Based on http://lafo.ssw.uni-linz.ac.at/hg
-
-This uses the Mercurial/HG repository directly.
+Based on https://github.com/graalvm/graal-core
