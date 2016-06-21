@@ -28,8 +28,7 @@ echo ""
 
 
 if [ -d ~/.local ]; then
-  JAVA_BIN=`../mx/mx -v vm -version | grep "product/bin/java" | cut -d ' ' -f 1`
-  JAVA_BUILD=${JAVA_BIN/\/product\/bin\/java/}
+  JAVA_BUILD=`../mx/mx jdkhome`
   if [ -d ~/.local/graal-core ]; then
     rm -Rf ~/.local/graal-core
   fi
