@@ -26,3 +26,12 @@ echo ""
 ../mx/mx --vm server clean
 ../mx/mx --vm server build
 
+
+if [ -d "~/.local" ]; then
+  JAVA_BIN=`../mx/mx -v vm -version | grep "product/bin/java" | cut -d ' ' -f 1`
+  JAVA_BUILD=${JAVA_BIN/\/product\/bin\/java/}
+  if [ -d "~/.local/graal-core" ]; then
+    rm -Rf ~/.local/graal-core
+  fi
+  mv $JAVA_BUILD ~/.local/graal-core
+fi
