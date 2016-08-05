@@ -1,5 +1,6 @@
 #!/bin/sh
 # usage: update-and-build.sh [hg-id]
+set -e
 
 ./update-graal-revision.sh "$1"
 GRAAL_DIR=`pwd`
@@ -7,7 +8,7 @@ GRAAL_DIR=`pwd`
 echo
 echo Push to GraalBasic repository
 git push
-cd graal-compiler
+cd graal-core
 GRAAL_REV=`git rev-parse HEAD`
 cd ..
 
