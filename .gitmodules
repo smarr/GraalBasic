@@ -4,3 +4,7 @@
 [submodule "graal-core"]
 	path = graal-core
 	url = https://github.com/graalvm/graal-core.git
+[submodule "graal-jvmci-8"]
+	path = graal-jvmci-8
+	url = https://github.com/smarr/graal-jvmci-8.git
+	branch = upstream/master
