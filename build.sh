@@ -5,20 +5,26 @@ echo %% Make sure git submodules are up-to-date
 echo ""
 git submodule update --init --recursive
 
+echo ""
+echo %% Clean Truffle
+echo ""
 cd truffle
 ../mx/mx clean
 cd ..
 
+echo ""
+echo %% Build JVMCI-enabled JVM
+echo ""
 cd graal-jvmci-8
 ../mx/mx clean
+../mx/mx build
 export JAVA_HOME=`../mx/mx jdkhome`
 cd ..
-
-cd graal-core
 
 echo ""
 echo %% Build Graal Compiler
 echo ""
+cd graal-core
 ../mx/mx clean
 ../mx/mx build
 
