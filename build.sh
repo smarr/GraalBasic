@@ -1,4 +1,8 @@
 #!/bin/sh
+set -e
+
+## We got issues with the version check when building from git, so, disable it
+export JVMCI_VERSION_CHECK=ignore
 
 echo ""
 echo %% Make sure git submodules are up-to-date
