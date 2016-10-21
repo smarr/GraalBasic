@@ -1,8 +1,7 @@
 #!/bin/sh
-# usage: update-and-build.sh [hg-id]
 set -e
 
-./update-graal-revision.sh "$1"
+./update-submodules.sh
 GRAAL_DIR=`pwd`
 
 echo
