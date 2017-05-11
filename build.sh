@@ -10,13 +10,6 @@ echo ""
 git submodule update --init --recursive
 
 echo ""
-echo %% Clean Truffle
-echo ""
-cd truffle
-../mx/mx clean
-cd ..
-
-echo ""
 echo %% Build JVMCI-enabled JVM
 echo ""
 cd graal-jvmci-8
@@ -28,9 +21,9 @@ cd ..
 echo ""
 echo %% Build Graal Compiler
 echo ""
-cd graal-core
-../mx/mx clean
-../mx/mx build
+cd truffle/compiler
+../../mx/mx clean
+../../mx/mx build
 
 echo ""
 echo %% Deploy Graal Into JVMCI Built
