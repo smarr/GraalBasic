@@ -29,6 +29,14 @@ echo ""
 echo %% Deploy Graal Into JVMCI Built
 cp mxbuild/dists/graal.jar $JAVA_HOME/jre/lib/jvmci/
 
+cd ../sdk
+../../mx/mx clean
+../../mx/mx build
+
+echo ""
+echo %% Deploy Graal SDK Into JVMCI Built
+cp mxbuild/dists/graal-sdk.jar $JAVA_HOME/jre/lib/jvmci/
+
 if [ -d ~/.local ]; then
   if [ -d ~/.local/graal-core ]; then
     rm -Rf ~/.local/graal-core
