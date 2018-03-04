@@ -2,27 +2,45 @@ language: java
 
 matrix:
   include:
-    # - os: linux
-    #   dist: trusty
-    #   jdk: oraclejdk8
+    - os: linux
+      dist: trusty
+      jdk: oraclejdk8
+      sudo: required
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+            - gcc-6
+
+            ## Version 7 does fail to compile
+            # - g++-6
+            # - gcc-6
+
+    ## JDK 9 is not yet supported
     # - os: linux
     #   dist: trusty
     #   jdk: oraclejdk9
 
-    # - os: osx
-    #   osx_image: xcode9.2
     - os: osx
-      osx_image: xcode9.3beta
-
-addons:
-  apt:
-    packages:
-      - build-essential
+      osx_image: xcode9.2
+    
+    ## Currently fails with a JVM crash
+    # - os: osx
+    #   osx_image: xcode9.3beta
 
 before_install:
-  - brew tap caskroom/versions
-  - brew cask install java8
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew tap caskroom/versions; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install java8; fi
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90; fi
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CC=gcc-6; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CXX=g++-6; fi
+  - echo CC=$CC CXX=$CXX
   - ./build.sh
