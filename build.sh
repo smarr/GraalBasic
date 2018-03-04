@@ -10,6 +10,7 @@ echo ""
 git submodule update --init --recursive
 
 echo ""
+echo %% JAVA_HOME=$JAVA_HOME
 echo %% Build JVMCI-enabled JVM
 echo ""
 cd graal-jvmci-8
@@ -19,6 +20,7 @@ export JAVA_HOME=`../mx/mx jdkhome`
 cd ..
 
 echo ""
+echo %% JAVA_HOME=$JAVA_HOME
 echo %% Build Graal Compiler
 echo ""
 cd truffle/compiler
