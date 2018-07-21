@@ -1,6 +1,6 @@
 [submodule "mx"]
 	path = mx
-	url = https://github.com/graalvm/mx.git
+	url = https://github.com/smarr/mx.git
 [submodule "graal-jvmci-8"]
 	path = graal-jvmci-8
 	url = https://github.com/graalvm/graal-jvmci-8.git
