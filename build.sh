@@ -28,7 +28,7 @@ export JVMCI_VERSION_CHECK=ignore
 
 echo ""
 echo %% Deploy Graal Into JVMCI Built
-cp mxbuild/dists/graal.jar $JAVA_HOME/jre/lib/jvmci/
+cp mxbuild/dists/jdk1.8/graal.jar $JAVA_HOME/jre/lib/jvmci/
 
 cd ../sdk
 ../../mx/mx clean
@@ -36,7 +36,7 @@ cd ../sdk
 
 echo ""
 echo %% Deploy Graal SDK Into JVMCI Built
-cp mxbuild/dists/graal-sdk.jar $JAVA_HOME/jre/lib/jvmci/
+cp mxbuild/dists/jdk1.8/graal-sdk.jar $JAVA_HOME/jre/lib/jvmci/
 
 if [ -d ~/.local ]; then
   if [ -d ~/.local/graal-core ]; then
